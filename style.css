@@ -336,6 +336,9 @@ h1 {
   .container.expanded .split {
     height: auto !important;
   }
+  .left .content {
+    margin-top: 50px; /* adjust the value as you want */
+  }
 }
 
 
