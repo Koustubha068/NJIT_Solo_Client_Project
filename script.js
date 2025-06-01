@@ -1,3 +1,4 @@
+// Hamburger menu toggle
 const hamburger = document.querySelector('.hamburger');
 const navLinksContainer = document.querySelector('.nav-links-container');
 const navLinks = document.querySelectorAll('.nav-links li a');
@@ -6,12 +7,10 @@ hamburger.addEventListener('click', () => {
   navLinksContainer.classList.toggle('active');
   hamburger.classList.toggle('active');
 
-  // Update aria-expanded for accessibility
   const expanded = hamburger.getAttribute('aria-expanded') === 'true';
   hamburger.setAttribute('aria-expanded', !expanded);
 });
 
-// Close menu when a nav link is clicked
 navLinks.forEach(link => {
   link.addEventListener('click', () => {
     navLinksContainer.classList.remove('active');
@@ -20,13 +19,109 @@ navLinks.forEach(link => {
   });
 });
 
-// Your existing hover split screen JS if needed:
-const container = document.querySelector('.container'); 
+// Split screen hover effect
+const container = document.querySelector('.container');
 const left = document.querySelector('.left');
 const right = document.querySelector('.right');
 
-left.addEventListener('mouseenter', () => container.classList.add('hover-left'));
-left.addEventListener('mouseleave', () => container.classList.remove('hover-left'));
+left.addEventListener('mouseenter', () => {
+  container.classList.add('hover-left');
+  toggleAfterPlayTextLines('left');
+});
 
-right.addEventListener('mouseenter', () => container.classList.add('hover-right'));
-right.addEventListener('mouseleave', () => container.classList.remove('hover-right'));
+left.addEventListener('mouseleave', () => {
+  container.classList.remove('hover-left');
+  resetAfterPlayTextLines();
+});
+
+right.addEventListener('mouseenter', () => {
+  container.classList.add('hover-right');
+  toggleAfterPlayTextLines('right');
+});
+
+right.addEventListener('mouseleave', () => {
+  container.classList.remove('hover-right');
+  resetAfterPlayTextLines();
+});
+
+function toggleAfterPlayTextLines(sideHovered) {
+  const leftAfterText = left.querySelector('.after-play-text');
+  const rightAfterText = right.querySelector('.after-play-text');
+
+  if (sideHovered === 'left') {
+    if (leftAfterText) leftAfterText.classList.add('two-rows');
+    if (rightAfterText) rightAfterText.classList.remove('two-rows');
+  } else if (sideHovered === 'right') {
+    if (rightAfterText) rightAfterText.classList.add('two-rows');
+    if (leftAfterText) leftAfterText.classList.remove('two-rows');
+  }
+}
+
+function resetAfterPlayTextLines() {
+  const leftAfterText = left.querySelector('.after-play-text');
+  const rightAfterText = right.querySelector('.after-play-text');
+
+  if (leftAfterText) leftAfterText.classList.remove('two-rows');
+  if (rightAfterText) rightAfterText.classList.remove('two-rows');
+}
+
+// Learn More buttons behavior
+const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
+
+learnMoreButtons.forEach(button => {
+  button.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    const sideContent = this.closest('.content');
+
+    // Prevent adding multiple expandable texts
+    if (sideContent.querySelector('.after-play-container')) return;
+
+    // Hide the Learn More button
+    this.style.display = 'none';
+
+    // Create container for text + new button
+    const afterPlayContainer = document.createElement('div');
+    afterPlayContainer.classList.add('after-play-container');
+
+    // Create text element
+    const afterPlayText = document.createElement('div');
+    afterPlayText.classList.add('after-play-text');
+    afterPlayText.textContent = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.";
+
+    // Initially clamp to 2 lines
+    afterPlayText.classList.add('two-rows');
+
+    // Create button container
+    const buttonsDiv = document.createElement('div');
+    buttonsDiv.classList.add('after-play-buttons');
+
+    const newBtn = document.createElement('a');
+    newBtn.href = "#";
+    newBtn.classList.add('btn');
+
+    const splitSide = this.closest('.split');
+    if (splitSide.classList.contains('left')) {
+      newBtn.classList.add('left-btn');
+      newBtn.textContent = "Click Here To Get Created Reports";
+    } else {
+      newBtn.classList.add('right-btn');
+      newBtn.textContent = "Click Here To Learn To Get Reports";
+    }
+
+    buttonsDiv.appendChild(newBtn);
+    afterPlayContainer.appendChild(afterPlayText);
+    afterPlayContainer.appendChild(buttonsDiv);
+    sideContent.appendChild(afterPlayContainer);
+
+    // Add .expanded class to container to allow full height & scrolling on small screens
+    container.classList.add('expanded');
+
+    // On clicking the afterPlayText, expand full text and remove clamp
+    afterPlayText.addEventListener('click', () => {
+      afterPlayText.classList.remove('two-rows');
+      afterPlayText.style.cursor = 'default';
+      afterPlayText.removeEventListener('click', arguments.callee);
+    });
+  });
+});
