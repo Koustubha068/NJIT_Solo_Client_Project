@@ -8,7 +8,7 @@ body {
   height: 100vh;
   overflow-y:auto;
   overflow: hidden;
-  background: #333;
+  background: #ffffff;
   font-family: "yana", sans-serif;
   color: white; /* Default text white */
 }
