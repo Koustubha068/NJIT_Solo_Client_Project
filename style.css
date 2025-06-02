@@ -119,20 +119,21 @@ body {
 }
 
 .nav-links li a:hover {
-  color: #D29536;
+  color: #ffffff;
   font-weight: 800;
+  border-color: #000;
 }
 
 .nav-links li a:hover,
 .nav-links li a:focus,
 .nav-links li a:active {
-  color: #D29536;
+  color: #ffffff;
   font-weight: 800;
   text-shadow:
-    -0.5px -0.5px 0 #000,
-     0.5px -0.5px 0 #000,
-    -0.5px  0.5px 0 #000,
-     0.5px  0.5px 0 #000;
+    -0.5px -0.5px 0 #E48C13,
+     0.5px -0.5px 0 #E48C13,
+    -0.5px  0.5px 0 #E48C13,
+     0.5px  0.5px 0 #E48C13;
 }
 
 

@@ -1,0 +1,82 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+ font-family: "yana", sans-serif;
+  background: linear-gradient(to right, #565656, #B2B2B2);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+/* Landing container */
+.landing-container {
+  position: relative;
+  max-width: 600px;
+  padding: 40px;
+  background-color: #37566A;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Close (X) button */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 32px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Content styling */
+.landing-content h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+  -webkit-text-stroke: 1.5px #ffffff;
+  color: white;
+}
+
+.landing-content h1::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  margin-top: 8px;
+  border-radius: 2px;
+}
+
+.landing-content p {
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-text-stroke: 0.3px #ffffff;
+  color: white;
+}
+
+/* Fade effect when closing */
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.4s ease-out;
+}
+
+.landing-content p {
+  font-size: 23px; /* Increased from 18px */
+  line-height: 1.7;
+  color: white;
+}
