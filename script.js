@@ -87,10 +87,24 @@ learnMoreButtons.forEach(button => {
     // Create text element
     const afterPlayText = document.createElement('div');
     afterPlayText.classList.add('after-play-text');
-    afterPlayText.textContent = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.";
+
+    // Different text for left and right
+    const splitSide = this.closest('.split');
+    if (splitSide.classList.contains('left')) {
+      afterPlayText.textContent = "This is the left side specific text. Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.";
+    } else {
+      afterPlayText.textContent = "This is the right side specific text. Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.";
+    }
 
     // Initially clamp to 2 lines
     afterPlayText.classList.add('two-rows');
+
+    // Set initial font size based on screen size
+    if (window.innerWidth <= 768) {
+      afterPlayText.style.fontSize = '20px';  // smaller on small screen initially
+    } else {
+      afterPlayText.style.fontSize = '22px';  // larger on large screen initially
+    }
 
     // Create button container
     const buttonsDiv = document.createElement('div');
@@ -100,7 +114,6 @@ learnMoreButtons.forEach(button => {
     newBtn.href = "#";
     newBtn.classList.add('btn');
 
-    const splitSide = this.closest('.split');
     if (splitSide.classList.contains('left')) {
       newBtn.classList.add('left-btn');
       newBtn.textContent = "Click Here To Get Created Reports";
@@ -124,6 +137,14 @@ learnMoreButtons.forEach(button => {
     afterPlayText.addEventListener('click', () => {
       afterPlayText.classList.remove('two-rows');
       afterPlayText.style.cursor = 'default';
+
+      // Increase font size more on small screens when expanded
+      if (window.innerWidth <= 768) {
+        afterPlayText.style.fontSize = '24px';  // bigger font size on expand for small screen
+      } else {
+        afterPlayText.style.fontSize = '22px';  // keep large screen font size on expand
+      }
+
       afterPlayText.removeEventListener('click', arguments.callee);
 
       // Update container height after expanding text
