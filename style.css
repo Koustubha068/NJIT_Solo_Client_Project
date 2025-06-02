@@ -119,9 +119,23 @@ body {
 }
 
 .nav-links li a:hover {
-  color: #fff9e3;
+  color: #D29536;
   font-weight: 800;
 }
+
+.nav-links li a:hover,
+.nav-links li a:focus,
+.nav-links li a:active {
+  color: #D29536;
+  font-weight: 800;
+  text-shadow:
+    -0.5px -0.5px 0 #000,
+     0.5px -0.5px 0 #000,
+    -0.5px  0.5px 0 #000,
+     0.5px  0.5px 0 #000;
+}
+
+
 
 /* Desktop nav */
 @media (min-width: 769px) {
@@ -403,3 +417,20 @@ h1 {
   gap: 15px;
   margin-top: 10px;
 }
+
+.after-play-text {
+  font-size: 16px;
+  line-height: 1.4;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  transition: font-size 0.3s ease;
+}
+
+/* When expanded (after clicking) */
+.after-play-text.expanded {
+  font-size: 20px;
+  line-height: 1.6;
+  cursor: default;
+}
+
