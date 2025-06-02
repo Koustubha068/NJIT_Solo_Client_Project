@@ -87,10 +87,24 @@ learnMoreButtons.forEach(button => {
     // Create text element
     const afterPlayText = document.createElement('div');
     afterPlayText.classList.add('after-play-text');
-    afterPlayText.textContent = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.";
+
+    // Different text for left and right
+    const splitSide = this.closest('.split');
+    if (splitSide.classList.contains('left')) {
+      afterPlayText.textContent = "This is the left side specific text. Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.";
+    } else {
+      afterPlayText.textContent = "This is the right side specific text. Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.";
+    }
 
     // Initially clamp to 2 lines
     afterPlayText.classList.add('two-rows');
+
+    // Set initial font size based on screen size
+    if (window.innerWidth <= 768) {
+      afterPlayText.style.fontSize = '20px';  // smaller on small screen initially
+    } else {
+      afterPlayText.style.fontSize = '22px';  // larger on large screen initially
+    }
 
     // Create button container
     const buttonsDiv = document.createElement('div');
@@ -100,7 +114,6 @@ learnMoreButtons.forEach(button => {
     newBtn.href = "#";
     newBtn.classList.add('btn');
 
-    const splitSide = this.closest('.split');
     if (splitSide.classList.contains('left')) {
       newBtn.classList.add('left-btn');
       newBtn.textContent = "Click Here To Get Created Reports";
@@ -117,11 +130,60 @@ learnMoreButtons.forEach(button => {
     // Add .expanded class to container to allow full height & scrolling on small screens
     container.classList.add('expanded');
 
+    // SET explicit container height to scrollHeight to prevent jump
+    container.style.height = container.scrollHeight + 'px';
+
     // On clicking the afterPlayText, expand full text and remove clamp
     afterPlayText.addEventListener('click', () => {
       afterPlayText.classList.remove('two-rows');
       afterPlayText.style.cursor = 'default';
+
+      // Increase font size more on small screens when expanded
+      if (window.innerWidth <= 768) {
+        afterPlayText.style.fontSize = '24px';  // bigger font size on expand for small screen
+      } else {
+        afterPlayText.style.fontSize = '22px';  // keep large screen font size on expand
+      }
+
       afterPlayText.removeEventListener('click', arguments.callee);
+
+      // Update container height after expanding text
+      container.style.height = container.scrollHeight + 'px';
     });
   });
+});
+
+// Small screen gap fix using --vh CSS variable
+function setMobileVH() {
+  if (window.innerWidth <= 768) {
+    // Calculate 1% of viewport height
+    let vh = window.innerHeight * 0.01;
+    // Set custom property --vh
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  } else {
+    // Remove the property on larger screens
+    document.documentElement.style.removeProperty('--vh');
+  }
+}
+
+// Run once on load and on resize
+window.addEventListener('load', setMobileVH);
+window.addEventListener('resize', () => {
+  setMobileVH();
+
+  if (!container) return;
+
+  if (window.innerWidth <= 768) {
+    if (container.classList.contains('expanded')) {
+      // Update container height to current scrollHeight to avoid jump on resize
+      container.style.height = container.scrollHeight + 'px';
+    } else {
+      // Reset container height to fixed vh
+      const vh = window.innerHeight * 0.01;
+      container.style.height = `calc(${vh}px * 100)`;
+    }
+  } else {
+    // Remove inline style on larger screens
+    container.style.height = '';
+  }
 });

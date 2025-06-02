@@ -1,3 +1,4 @@
+
 /* Reset */
 * {
   margin: 0;
@@ -7,11 +8,13 @@
 
 body {
   height: 100vh;
+  overflow-y:auto;
   overflow: hidden;
   background: #333;
   font-family: "yana", sans-serif;
   color: white; /* Default text white */
 }
+
 
 /* Navbar */
 
@@ -292,6 +295,7 @@ h1 {
   user-select: none;
 }
 
+
 /* Remove text color change on hover or active */
 .btn:hover,
 .btn:focus,
@@ -322,39 +326,49 @@ h1 {
 
 /* Mobile devices */
 @media (max-width: 768px) {
-  body {
-    overflow-y: auto; /* allow scrolling when expanded */
-    height: 100vh; /* fixed viewport height */
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: auto !important;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .container {
     flex-direction: column;
-    height: 100vh; /* fill viewport height */
+    height: auto; /* changed from fixed vh to auto */
+    height: calc(var(--vh, 1vh) * 100);
   }
 
   .split {
     width: 100% !important;
-    height: 50vh;  /* half viewport height each */
+    height: 50vh; /* fixed half viewport height */
     padding: 1.5rem;
   }
 
-  /* When expanded (learn more open), let content grow and scroll */
+  /* Only fix height on container when NOT expanded */
+  .container:not(.expanded) {
+    height: calc(var(--vh, 1vh) * 100);
+  }
+
   .container.expanded {
-    height: auto;
+    height: auto !important; /* allow container to grow */
   }
+
   .container.expanded .split {
-    height: auto !important;
+    height: auto !important; /* allow splits to grow */
+    min-height: 0; /* remove min height */
   }
-    .container.expanded {
-    height: auto;
-  }
-  .container.expanded .split {
-    height: auto !important;
-  }
+
   .left .content {
-    margin-top: 50px; /* adjust the value as you want */
+    margin-top: 100px; /* optional */
+  }
+  .right .content {
+    margin-top: 120px; /* optional */
   }
 }
+
 
 
 /* Very small devices */
@@ -434,4 +448,5 @@ h1 {
   line-height: 1.6;
   cursor: default;
 }
+
 
