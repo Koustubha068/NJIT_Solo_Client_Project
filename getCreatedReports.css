@@ -770,3 +770,102 @@ html {
 
 
 /* End of tools we use section*/
+
+/* FAQ Section */
+/* FAQ Section */
+.faq-section {
+  background: linear-gradient(to bottom, #aa6a09 0%, #780901 100%);
+  padding: 60px 20px;
+  color: white;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* FAQ Header */
+.faq-section h2 {
+  font-size: 48px;
+  font-weight: normal;
+  margin-bottom: 20px;
+  color: white;
+}
+
+/* FAQ Container (Full width) */
+.faq-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* FAQ Item */
+.faq-item {
+  margin-bottom: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* FAQ Question (Button) */
+.faq-question {
+  background-color: #313D4B;
+  color: white;
+  padding: 20px;
+  text-align: center; /* Centering the text */
+  font-size: 18px;
+  font-weight: normal;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Remove Hover Color Change */
+.faq-question:hover {
+  background-color: #313D4B; /* Same as original color */
+}
+
+/* FAQ Answer */
+.faq-answer {
+  background-color: #f1f1f1;
+  padding: 20px;
+  display: none;
+  font-size: 18px; /* Default size for answer */
+  line-height: 1.6;
+  color: #333;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Opened FAQ Item */
+.faq-item.open .faq-answer {
+  display: block;
+  font-size: 22px; /* Increased size when opened */
+}
+
+/* Opened FAQ Question (No size change for the question itself) */
+.faq-item.open .faq-question {
+  padding: 20px; /* Maintain consistent padding */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 40px 10px;
+  }
+
+  .faq-question {
+    font-size: 16px; /* Smaller font size on mobile */
+  }
+
+  .faq-answer {
+    font-size: 20px; /* Larger answer text on mobile */
+  }
+
+  .faq-item.open .faq-answer {
+    font-size: 24px; /* Larger answer when opened on mobile */
+  }
+}
+
+
+
+/*end of common questions*/
