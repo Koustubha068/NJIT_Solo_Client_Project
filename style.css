@@ -92,10 +92,10 @@ body {
   right: 0;
   width: 100%;
   background-color: #7e7d7d;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
   z-index: 1500;
 }
 
@@ -294,6 +294,9 @@ h1 {
   transition: background-color 0.3s ease;
   user-select: none;
 }
+
+
+
 
 
 /* Remove text color change on hover or active */

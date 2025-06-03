@@ -1,3 +1,16 @@
+const hamburger = document.querySelector(".hamburger");
+const navLinksContainer = document.querySelector(".nav-links-container");
+
+// Toggle the navigation visibility on hamburger click
+hamburger.addEventListener("click", function () {
+  navLinksContainer.classList.toggle("active");
+  hamburger.classList.toggle("active");
+});
+
+
+
+
+
 const form = document.getElementById("form");
 const result = document.getElementById("result");
 
