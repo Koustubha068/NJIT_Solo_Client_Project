@@ -11,12 +11,12 @@ min-height: 100vh;
   font-family: "yana", sans-serif;
   color: white;
   background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-    rgba(94, 94, 99, 0.8);
+    rgba(132, 132, 139, 0.8);
 } 
 
 /* --- Navbar --- */
 .navbar {
-  position: fixed;
+  
   top: 0;
   width: 100%;
   padding: 15px 30px;
@@ -108,12 +108,12 @@ min-height: 100vh;
 .nav-links li a:hover,
 .nav-links li a:focus,
 .nav-links li a:active {
-  color: #ffffff;
+  color: white;
   text-shadow:
-    -0.5px -0.5px 0 #ffffff,
-     0.5px -0.5px 0 #ffffff,
-    -0.5px  0.5px 0 #ffffff,
-     0.5px  0.5px 0 #fffffe;
+    -2px -2px 0 #7B0803,
+     2px 2px 0 #7B0803,
+    -2px  2px 0 #7B0803,
+     2px  px 0 #7B0803;
 }
 
 /* Desktop nav */
@@ -150,6 +150,7 @@ min-height: 100vh;
   margin: 50px auto;
   padding: 20px;
   gap: 40px;
+  margin-top:35px;
 }
 
 /* --- Contact Form (Left) --- */
@@ -163,7 +164,7 @@ min-height: 100vh;
 
 form label {
   display: block;
-  font-size: 14px;
+  font-size: 18px;
   margin-bottom: 6px;
   font-weight: bold;
   color: white;
@@ -232,13 +233,13 @@ button[type="submit"]:hover {
 }
 
 .contact-info h2 {
-  font-size: 24px;
+  font-size: 28px;
   margin-bottom: 10px;
   color: white;
 }
 
 .contact-info p {
-  font-size: 18px;
+  font-size: 20px;
   color: white;
   margin-bottom: 20px;
   line-height: 1.6;
@@ -248,7 +249,7 @@ button[type="submit"]:hover {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
-  font-size: 18px;
+  font-size: 20px;
   color: white;
 }
 
@@ -285,6 +286,7 @@ button[type="submit"]:hover {
   .container {
     flex-direction: column;
     padding: 20px;
+    margin-top:150px;
   }
 
   .contact-info {
@@ -293,3 +295,29 @@ button[type="submit"]:hover {
     margin-top: 30px;
   }
 }
+
+
+/*Header */
+.page-header {
+  max-width: 1000px;
+  margin: 40px auto 10px;  /* changed from 120px top margin to 40px */
+  text-align: center;
+  color: white;
+}
+
+.page-header h1 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-family: "yana", sans-serif;
+}
+
+.page-header hr {
+  width: 80px;
+  height: 3px;
+  background-color: white;
+  border: none;
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
