@@ -117,9 +117,11 @@ learnMoreButtons.forEach(button => {
     if (splitSide.classList.contains('left')) {
       newBtn.classList.add('left-btn');
       newBtn.textContent = "Click Here To Get Created Reports";
+      newBtn.href = "getCreatedReports.html";
     } else {
       newBtn.classList.add('right-btn');
       newBtn.textContent = "Click Here To Learn To Get Reports";
+      newBtn.href = "LearnReports.html";
     }
 
     buttonsDiv.appendChild(newBtn);
