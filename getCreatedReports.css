@@ -150,7 +150,8 @@ min-height: 100vh;
   margin: 50px auto;
   padding: 20px;
   gap: 40px;
-  margin-top:35px;
+  margin-top:0px;
+
 }
 
 /* --- Contact Form (Left) --- */
@@ -158,9 +159,6 @@ min-height: 100vh;
   flex: 1;
 }
 
-.contact-form h2 {
-  display: none; /* remove "Contact Us" */
-}
 
 form label {
   display: block;
@@ -201,21 +199,69 @@ form textarea {
   flex: 1;
 }
 
-/* Submit Button */
+
 button[type="submit"] {
-  background-color: #1a3b23;
+  position: relative;
+  background-color: #E2890F;
   color: #fff;
-  padding: 12px 25px;
+  padding: 12px;
   font-size: 15px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.5s ease; /* Slightly slower transition */
+  width: 100%;
+  overflow: hidden;
+}
+
+button[type="submit"]::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none; /* ensures it doesn’t block clicks */
 }
 
 button[type="submit"]:hover {
-  background-color: #14531c;
+  background-color: #E2890F; /* change background on hover */
 }
+
+button[type="submit"]:hover::before {
+  animation: shine 1.8s ease forwards; /* slower animation, doubled duration */
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none; /* remove default focus outline */
+  border-color: #E2890F; /* yellow border */
+  box-shadow: 0 0 10px 3px rgba(226, 137, 15, 0.7); /* yellow glow */
+  transition: box-shadow 0.6s ease, border-color 0.6s ease;
+}
+
+form input,
+form textarea {
+  transition: box-shadow 0.6s ease, border-color 0.6s ease;
+}
+
+
 
 /* Result Text */
 #result {
@@ -230,12 +276,22 @@ button[type="submit"]:hover {
   padding-left: 40px;
   border-left: 1px solid #ddd;
   color: white;
+  font-family: "yana", sans-serif;
+  
+}
+
+.contact-info p,
+.contact-methods .info-item {
+font-family: "yana", sans-serif;
+font-weight: normal !important;
+color: rgba(255, 255, 255, 0.6);
 }
 
 .contact-info h2 {
   font-size: 28px;
   margin-bottom: 10px;
   color: white;
+  
 }
 
 .contact-info p {
@@ -243,6 +299,8 @@ button[type="submit"]:hover {
   color: white;
   margin-bottom: 20px;
   line-height: 1.6;
+  font-weight: normal !important;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .info-item {
@@ -286,15 +344,54 @@ button[type="submit"]:hover {
   .container {
     flex-direction: column;
     padding: 20px;
-    margin-top:150px;
+    margin-top: 40px;
   }
 
   .contact-info {
     padding-left: 0;
     border-left: none;
-    margin-top: 30px;
+    margin-top:-40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .contact-info h2 {
+    margin-bottom: 4px;
+  }
+
+  .contact-info p {
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+
+  .contact-methods {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 4px;
+  }
+
+  .info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    font-size: 18px;
+    color: white;
+  }
+
+  .info-item i {
+    margin-right: 6px;
+  }
+
+  .contact-form {
+    margin-top: 5px;
   }
 }
+
 
 
 /*Header */
@@ -320,4 +417,50 @@ button[type="submit"]:hover {
   margin: 0 auto;
   border-radius: 2px;
 }
+/* Header start*/
+.form-title {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+  margin-top: 40px;   /* add this to push down */
+  margin-bottom: 4px;
+  color: white;
+  font-family: "yana", sans-serif;
+  font-weight:normal;
+}
+
+.form-subtitle {
+  text-align: center;
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #ccc;
+ font-family: "yana", sans-serif;
+ font-weight:normal;
+}
+
+
+/* Hide the breaks by default */
+.small-screen-break {
+  display: none;
+  border: none;
+  border-top: 2px solid white;
+  margin: 20px 30px; 
+  width: auto;       
+}
+
+
+
+@media (max-width: 768px) {
+  .small-screen-break {
+    display: block;
+    margin-top:25px;
+  }
+}
+
+
+
+
+
+/* Header end*/
 
