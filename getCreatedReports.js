@@ -79,3 +79,6 @@ window.addEventListener('scroll', function() {
     imageTextSection.classList.add('visible');
   }
 });
+
+
+//Tools section
