@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>		
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://use.typekit.net/tma8fwx.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <title>Skylar Tech Solutions</title>
+    <link rel="stylesheet" href="getCreatedReports.css" />
+</head>
+<body>
+<nav class="navbar">
+  <ul class="nav-left">
+    <li><a href="#" class="logo">
+      <img src="Skylar_Tech_Solutions_logo.png" alt ="Skylar Tech Solutions">
+    </a></li>
+  </ul>
+
+  <!-- Hamburger Icon -->
+  <div class="hamburger" aria-label="Toggle menu" aria-expanded="false" role="button" tabindex="0">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="nav-links-container">
+    <ul class="nav-links">
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Tools</a></li>
+      <li><a href="#">FAW</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!--contact form here-->
+<div class="container">
+  <!-- Left Side - Contact Form -->
+  <div class="contact-form">
+    <h2>Contact Us</h2>
+    <form action="https://api.web3forms.com/submit" method="POST" id="form">
+      <!-- Required Web3Forms hidden fields -->
+      <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+      <input type="hidden" name="subject" value="New Submission from Web3Forms" />
+      <input type="checkbox" name="botcheck" style="display:none;" />
+
+      <div class="row">
+        <div class="column">
+          <label for="firstName">First Name</label>
+          <input type="text" id="firstName" name="firstName" placeholder="First name" required>
+        </div>
+        <div class="column">
+          <label for="lastName">Last Name</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Last name" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="column">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+        <div class="column">
+          <label for="phone">Phone Number</label>
+          <input type="text" id="phone" name="phone" placeholder="+1 (123) 456-7890" required>
+        </div>
+      </div>
+
+      <label for="message">What do you have in mind</label>
+      <textarea id="message" name="message" placeholder="Please enter query..." required></textarea>
+
+      <button type="submit">Submit</button>
+      <p id="result" class="text-gray-500"></p>
+    </form>
+  </div>
+
+  <!-- Right Side - Contact Info -->
+  <div class="contact-info">
+    <h2>Contact us</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim</p>
+
+    <div class="info-item">
+      <i class="fas fa-phone"></i> +1258 3258 5679
+    </div>
+    <div class="info-item">
+      <i class="fas fa-envelope"></i> hello@workik.com
+    </div>
+    <div class="info-item">
+      <i class="fas fa-map-marker-alt"></i> 102 street, y cross 485656
+    </div>
+
+    <div class="social-icons">
+      <i class="fab fa-google"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-facebook"></i>
+    </div>
+  </div>
+</div>
+
+<script src="getCreatedReports.js"></script>
+</body>  
+</html>
