@@ -614,10 +614,31 @@ color: rgba(255, 255, 255, 0.6);
   }
 }
 
-/* ---- Smooth Scrolling ---- */
+
 html {
   scroll-behavior: smooth;
 }
+
+
+@media (min-width: 769px) {
+  .text-container {
+    text-align: center; 
+  }
+
+  .text-container h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center; 
+  }
+}
+.text-container p {
+  font-size: 22px;  /* Increased font size */
+  line-height: 1.6;
+}
+
+
+
 
 
 /* end of about section*/
