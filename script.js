@@ -121,7 +121,7 @@ learnMoreButtons.forEach(button => {
     } else {
       newBtn.classList.add('right-btn');
       newBtn.textContent = "Click Here To Learn To Get Reports";
-      newBtn.href = "LearnReports.html";
+      newBtn.href = "learnReports.html";
     }
 
     buttonsDiv.appendChild(newBtn);
