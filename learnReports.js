@@ -73,6 +73,12 @@ function isInViewport(el) {
 // Select the image-text section
 const imageTextSection = document.querySelector('.image-text-section');
 
+
+function isInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  return rect.top < window.innerHeight - 100; // Trigger 100px before fully visible
+}
+
 // Listen for scroll events
 window.addEventListener('scroll', function() {
   if (isInViewport(imageTextSection)) {
