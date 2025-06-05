@@ -91,13 +91,9 @@ learnMoreButtons.forEach(button => {
     // Different text for left and right
     const splitSide = this.closest('.split');
     if (splitSide.classList.contains('left')) {
-      afterPlayText.textContent = `Building a report starts with gathering the customers needs. In these “requirement gathering” sessions, we ask questions about their goals and preferences, such as how often they want updated data.
-
-For example, a customer might say, “We need a sales report by department with drill-downs by store for the last 2 years.”
-
-Next, we analyze the source data, clarify any issues, and build the report. After internal checks and customer validation, the final report is published in their preferred location.`;
+      afterPlayText.textContent = `Building a report starts with gathering customer requirements through detailed discussions. A customer might say, “We need sales by department with store-level drill-downs for the past 2 years.” We then analyze the data, resolve any questions, build and validate the report, and publish it once approved.`;
     } else {
-      afterPlayText.textContent = "Most of the Business Intelligence tools currently available in the market are self service, , meaning customers can learn how to use them without a steep learning curve. It is the intuitive nature of the tools that enable the customers to pick up new technologies. Using these self-service features, customers can also build simple reports from an existing data model or alter an existing report to suit their needs or pleasing to their eyes. When it comes to developing complex reports where source data is not in a desired format and demands a lot of transformation before it can be used, it requires a good amount of scripting skills and deep knowledge of what the tool can do and what it can not. This enables the learner how to achieve what (s)he needs. And efficiency is another area to focus on. Just achieving the ask may not be sufficient, if the report does not  perform well. We offer training sessions to help the learners transition into experts.";
+      afterPlayText.textContent = "Most Business Intelligence tools today are self-service and intuitive, allowing users to easily create or modify simple reports. However, building complex reports often requires scripting skills to transform raw data into a usable format. Efficiency also matters—meeting requirements isn't enough if the report performs poorly. We offer training sessions to help the learners transition into experts."
     }
 
     // Initially clamp to 2 lines
@@ -105,9 +101,9 @@ Next, we analyze the source data, clarify any issues, and build the report. Afte
 
     // Set initial font size based on screen size
     if (window.innerWidth <= 768) {
-      afterPlayText.style.fontSize = '18px';  // smaller on small screen initially
+      afterPlayText.style.fontSize = '17px';  // smaller on small screen initially
     } else {
-      afterPlayText.style.fontSize = '18px';  // larger on large screen initially
+      afterPlayText.style.fontSize = '17px';  // larger on large screen initially
     }
 
     // Create button container
@@ -146,9 +142,9 @@ Next, we analyze the source data, clarify any issues, and build the report. Afte
 
       // Increase font size more on small screens when expanded
       if (window.innerWidth <= 768) {
-        afterPlayText.style.fontSize = '24px';  // bigger font size on expand for small screen
+        afterPlayText.style.fontSize = '17px';  // bigger font size on expand for small screen
       } else {
-        afterPlayText.style.fontSize = '22px';  // keep large screen font size on expand
+        afterPlayText.style.fontSize = '17px';  // keep large screen font size on expand
       }
 
       afterPlayText.removeEventListener('click', arguments.callee);
