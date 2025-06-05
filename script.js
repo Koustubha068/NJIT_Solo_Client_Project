@@ -91,9 +91,9 @@ learnMoreButtons.forEach(button => {
     // Different text for left and right
     const splitSide = this.closest('.split');
     if (splitSide.classList.contains('left')) {
-      afterPlayText.textContent = "This is the left side specific text. Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.";
+      afterPlayText.textContent = "Building a report involves gathering all the needs from the customer. During these requirement gathering sessions , we ask the customer multitude of questions, ranging from their expectations from this report and where the source data resides, to granular details like how frequently they would like to see fresh data. The customer may say, we need to see a report of all the sales by department, with the ability to drill down to a specific store, for the last 2 years.We run with this requirement, analyze the source data and reach out to the customer in case of any questions and concerns. And we build the report, validate if the numbers look good and have the customer validate from their side as well. Once everyone is happy, it will be published in a desired location where the customer can access it from.";
     } else {
-      afterPlayText.textContent = "This is the right side specific text. Lorem ipsum dolor sit amet consectetur adipiscing elit. Dolor sit amet consectetur adipiscing elit quisque faucibus.";
+      afterPlayText.textContent = "Most of the Business Intelligence tools currently available in the market are self service, , meaning customers can learn how to use them without a steep learning curve. It is the intuitive nature of the tools that enable the customers to pick up new technologies. Using these self-service features, customers can also build simple reports from an existing data model or alter an existing report to suit their needs or pleasing to their eyes. When it comes to developing complex reports where source data is not in a desired format and demands a lot of transformation before it can be used, it requires a good amount of scripting skills and deep knowledge of what the tool can do and what it can not. This enables the learner how to achieve what (s)he needs. And efficiency is another area to focus on. Just achieving the ask may not be sufficient, if the report does not  perform well. We offer training sessions to help the learners transition into experts.";
     }
 
     // Initially clamp to 2 lines
@@ -101,9 +101,9 @@ learnMoreButtons.forEach(button => {
 
     // Set initial font size based on screen size
     if (window.innerWidth <= 768) {
-      afterPlayText.style.fontSize = '20px';  // smaller on small screen initially
+      afterPlayText.style.fontSize = '18px';  // smaller on small screen initially
     } else {
-      afterPlayText.style.fontSize = '22px';  // larger on large screen initially
+      afterPlayText.style.fontSize = '18px';  // larger on large screen initially
     }
 
     // Create button container
